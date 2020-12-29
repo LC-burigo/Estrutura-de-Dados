@@ -9,18 +9,28 @@ class LinkedList:
         self.head = None
 
     def append(self, data):
-        new_node = Node(data)
-        # se não há nenhum nó, adicionar esta primeira data ao primeiro nó, que estará armazenado dentro do self.head
-        if self.head is None:
-            self.head = new_node
-            return
+        # new_node = Node(data)
+        # # se não há nenhum nó, adicionar esta primeira data ao primeiro nó, que estará armazenado dentro do self.head
+        # if self.head is None:
+        #     self.head = new_node
+        #     return
+        # else:
+        #     current_node = self.head
+        #
+        #     while current_node.next:
+        #         current_node = current_node.next
+        #     current_node = new_node
+        #     return
 
-        current_node = self.head
-
-        while current_node.next:
-            current_node = current_node.next
-        current_node = new_node
-        return
+        if self.head:
+            # inserção quando a lista já possui elementos
+            current_node = self.head
+            while current_node.next:
+                current_node = current_node.next
+            current_node.next = Node(data)
+        else:
+            # primeira inserção
+            self.head = Node(data)
 
     def lenght(self):
         node_size = 0
@@ -37,9 +47,6 @@ class LinkedList:
     def list(self):
         nodes_list = []
         current_node = self.head
-
-        if current_node is None:
-            return []
 
         while current_node:
             nodes_list.append(current_node.data)
@@ -80,7 +87,6 @@ class LinkedList:
 
 one = LinkedList()
 print(one.list())
-one.append(4)
 one.append(17)
 one.append(2)
 one.append(1)
