@@ -84,14 +84,19 @@ class LinkedList:
         print("Item not found")
         return False
 
+    # Desafios
+
 
 one = LinkedList()
-print(one.list())
 one.append(17)
+one.append(2)
 one.append(2)
 one.append(1)
 one.append(24)
 print(one.list())
+print(one.lenght())
+print(one.get_by_index(4))
+one.get_by_value(2)
 
 
 
