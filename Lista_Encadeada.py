@@ -20,11 +20,31 @@ class LinkedList:
         current_node = Node(data)
 
     def lenght(self):
+        node_size = 0
         current_node = self.head
 
-        node_size = 0
-        if self.head is None:
-            return node_size == 0
+        if current_node is None:
+            return 0
+
+        while current_node:
+            node_size += 1
+            current_node = current_node.next
+        return node_size
+
+    def list(self):
+        nodes_list = []
+        current_node = self.head
+
+        if current_node is None:
+            return []
+
+        while current_node:
+            nodes_list.append(current_node.data)
+            current_node = current_node.next
+        return nodes_list
+
+
+
 
 
 
