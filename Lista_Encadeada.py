@@ -32,6 +32,9 @@ class LinkedList:
         #     # primeira inserção
         #     self.head = Node(data)
 
+    def __repr__(self):
+        return "self.head:{}".format(self.head.data)
+
     def lenght(self):
         node_size = 0
         current_node = self.head
@@ -86,17 +89,62 @@ class LinkedList:
 
     # Desafios
 
+    def display(self):
+        contents = self.head
+        # If the list is null
+        if contents is None:
+            print("List has no element")
+        while contents:
+            print(contents.data)
+            contents = contents.next
+        print("----------")
+
+    def set_start(self, data):
+        new_node = Node(data)
+        new_node.next = self.head
+        self.head = new_node
+
+    def set_end(self, data):
+        new_node = Node(data)
+        current_node = self.head
+
+        if current_node is None:
+            current_node = new_node
+            return
+
+        while current_node.next:
+            current_node = current_node.next
+        current_node.next = new_node
+        return
+
+    def remove_start(self):
+        if self.head is None:
+            print("The list has no element to delete")
+            return
+        self.head = self.head.next
+
+    def remove_at_end(self):
+        if self.head is None:
+            print("The list has no element to delete")
+            return
+        current_node = self.head
+        while current_node.next:
+            current_node = current_node.next
+        current_node.next = None
+
 
 one = LinkedList()
 one.append(17)
 one.append(2)
 one.append(2)
 one.append(1)
-one.append(24)
-print(one.list())
-print(one.lenght())
-print(one.get_by_index(4))
-one.get_by_value(2)
+one.set_end(24)
+print(one.display())
+one.remove_start()
+one.remove_at_end()
+print(one.display())
+
+
 
 
 
