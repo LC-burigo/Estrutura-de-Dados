@@ -104,6 +104,29 @@ class LinkedList:
         new_node.next = self.head
         self.head = new_node
 
+    def set_on_index(self, data, index):
+        new_node = Node(data)
+        current_node = self.head
+
+        if self.head is None:
+            print("There is no nodes yet")
+            return
+
+        if index < 0 or index > len(self.list()):
+            print("ERROR: 'Get' Index out of range!")
+            return None
+
+        if index == 0:
+            self.set_start(data)
+
+        i = 1
+        while current_node:
+            if index == i:
+                new_node.next == current_node.next
+                current_node.next = new_node
+            i += 1
+            current_node = current_node.next
+
     def set_end(self, data):
         new_node = Node(data)
         current_node = self.head
@@ -123,7 +146,7 @@ class LinkedList:
             return
         self.head = self.head.next
 
-    def remove_at_end(self):
+    def remove_end(self):
         if self.head is None:
             print("The list has no element to delete")
             return
@@ -139,9 +162,7 @@ one.append(2)
 one.append(2)
 one.append(1)
 one.set_end(24)
-print(one.display())
-one.remove_start()
-one.remove_at_end()
+one.set_on_index(6, 1)
 print(one.display())
 
 
