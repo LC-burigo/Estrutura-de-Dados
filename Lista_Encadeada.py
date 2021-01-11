@@ -106,26 +106,27 @@ class LinkedList:
 
     def set_on_index(self, data, index):
         new_node = Node(data)
-        current_node = self.head
 
         if self.head is None:
             print("There is no nodes yet")
             return
 
         if index < 0 or index > len(self.list()):
-            print("ERROR: 'Get' Index out of range!")
+            print("ERROR: 'Set' Index out of range!")
             return None
 
         if index == 0:
             self.set_start(data)
 
+        current_node = self.head
         i = 1
-        while current_node:
-            if index == i:
-                new_node.next == current_node.next
-                current_node.next = new_node
-            i += 1
+        while current_node is not None and i != index:
             current_node = current_node.next
+            i += 1
+
+        new_node.next == current_node.next
+        current_node.next = new_node
+
 
     def set_end(self, data):
         new_node = Node(data)
