@@ -165,6 +165,8 @@ one.append(1)
 one.set_end(24)
 one.set_on_index(6, 1)
 print(one.display())
+one.set_on_index(3, 2)
+print(one.display())
 
 
 
